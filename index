@@ -35,5 +35,78 @@
 <nav>
     <a href="toto.html">444444</a>
 </nav>
+<body style="font-size: 18px; font-family: Arial, sans-serif; max-width: 500px; margin: 50px auto; padding: 20px;">
+
+    <h1>Calculadora de IMC</h1>
+    <h2 style="color: #0056b3;">Descubra seu Índice de Massa Corporal</h2>
+    
+    <!-- Campos de Entrada -->
+    <div style="margin-bottom: 15px;">
+        <label style="display: block; margin-bottom: 5px;">Seu Peso (kg):</label>
+        <input type="number" id="peso" placeholder="Ex: 70" style="padding: 10px; font-size: 16px; width: 100%; border: 1px solid #ccc; border-radius: 5px;">
+    </div>
+
+    <div style="margin-bottom: 20px;">
+        <label style="display: block; margin-bottom: 5px;">Sua Altura (m):</label>
+        <input type="number" id="altura" step="0.01" placeholder="Ex: 1.75" style="padding: 10px; font-size: 16px; width: 100%; border: 1px solid #ccc; border-radius: 5px;">
+    </div>
+
+    <!-- Botão Grande -->
+    <button onclick="calcularIMC()" style="padding: 15px 30px; font-size: 18px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold;">
+        Calcular IMC
+    </button>
+
+    <!-- Área do Resultado -->
+    <div id="resultado" style="margin-top: 25px; padding: 15px; font-size: 20px; font-weight: bold; text-align: center; border-radius: 5px; display: none;">
+    </div>
+
+    <!-- Sistema de Cálculo (JavaScript) -->
+    <script>
+        function calcularIMC() {
+            // Captura os valores digitados pelo usuário
+            const peso = parseFloat(document.getElementById('peso').value);
+            const altura = parseFloat(document.getElementById('altura').value);
+            const divResultado = document.getElementById('resultado');
+
+            // Valida se os campos foram preenchidos corretamente
+            if (!peso || !altura || altura <= 0) {
+                divResultado.style.display = "block";
+                divResultado.style.backgroundColor = "#f8d7da";
+                divResultado.style.color = "#721c24";
+                divResultado.innerHTML = "Por favor, insira valores válidos para peso e altura.";
+                return;
+            }
+
+            // Realiza a fórmula matemática: peso / (altura * altura)
+            const imc = (peso / (altura * altura)).toFixed(1);
+            let classificacao = "";
+
+            // Define a classificação baseada no resultado
+            if (imc < 18.5) {
+                classificacao = "Abaixo do peso";
+                divResultado.style.backgroundColor = "#fff3cd";
+                divResultado.style.color = "#856404";
+            } else if (imc >= 18.5 && imc < 24.9) {
+                classificacao = "Peso normal";
+                divResultado.style.backgroundColor = "#d4edda";
+                divResultado.style.color = "#155724";
+            } else if (imc >= 25 && imc < 29.9) {
+                classificacao = "Sobrepeso";
+                divResultado.style.backgroundColor = "#fff3cd";
+                divResultado.style.color = "#856404";
+            } else {
+                classificacao = "Obesidade";
+                divResultado.style.backgroundColor = "#f8d7da";
+                divResultado.style.color = "#721c24";
+            }
+
+            // Mostra o resultado final na tela
+            divResultado.style.display = "block";
+            divResultado.innerHTML = `Seu IMC é ${imc}<br><span style="font-size: 16px; font-weight: normal;">Classe: ${classificacao}</span>`;
+        }
+    </script>
+
+</body>
+
 </body>
 </html>

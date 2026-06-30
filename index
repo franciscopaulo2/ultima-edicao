@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+     IFPI
+    </title>
+</head>
+<body>
+<header>
+        <link rel="stylesheet" href="alexsndersong.css">
+    <h1>
+        Instituto Federal do Piauí 
+    </h1>
+        Ministério da educação
+</header>
+<main>
+    <h1>
+        Educação Fisica no IFPI
+    </h1>
+    <p>A Educação Fisica no Instituto Federal do Piaui (IFPI) é fundamental para o desenvolvimento integral do aluno, indo muito além do exercício físico. Ela estimula capacidades cognitivas, motoras e socioemocionais, ajudando a formar cidadãos mais saudáveis, conscientes e participativos.</p>
+    <button onclick="mostrarmensagen()">seja bem vindo</button>
+
+     <script>
+    function mostrarmensagen(){
+        alert("bem vindo")
+    }
+    getElementByid(1)
+    innerText
+    </script>
+
+
+</main>
+<nav>
+    <a href="toto.html">444444</a>
+</nav>
+</body>
+</html>
